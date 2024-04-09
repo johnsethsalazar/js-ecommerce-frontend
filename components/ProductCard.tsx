@@ -44,6 +44,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         router.push("/sign-in");
         return;
       } else {
+        setIsLiked((prevIsLiked) => !prevIsLiked);
         setLoading(true);
         const res = await fetch("/api/user/wishlist", {
           method: "POST",
@@ -51,9 +52,11 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         });
         const updatedUser = await res.json();
         setSignedInUser(updatedUser.wishlist.includes(product._id));
+        setLoading(false);
       }
     } catch (err) {
       console.log("[wishlist_POST]", err);
+      setLoading(false);
     }
   };
 
