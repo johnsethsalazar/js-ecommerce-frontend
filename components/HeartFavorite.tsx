@@ -31,7 +31,8 @@ const HeartFavorite = ({ product }: { product: ProductType }) => {
     }
   }, [user]);
 
-  const handleLike = async () => {
+  const handleLike = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
     try {
       //If user clicked wishlist button and hasn't signed in yet. The user will be redirected to the sign-in page
       if (!user) {
