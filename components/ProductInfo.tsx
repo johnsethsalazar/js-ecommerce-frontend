@@ -35,6 +35,22 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
           </div>
         </div>
       )}
+
+      {productInfo.sizes.length > 0 && (
+        <div className="flex flex-col gap-2">
+          <p className="text-base-medium text-grey-2">Sizes</p>
+          <div className="flex gap-2">
+            {productInfo.sizes.map((sizes, index) => (
+              <p
+                key={index}
+                className="border border-black px-2 py-1 rounded-lg cursor-pointer"
+              >
+                {sizes}
+              </p>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
