@@ -1,6 +1,11 @@
+"use client"
+import { useState } from "react";
 import HeartFavorite from "./HeartFavorite";
 
 const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
+  const [selectedColor, setSelectedColor] = useState<string>(productInfo.colors[0]);
+  const [selectedSize, setSelectedSize] = useState<string>(productInfo.sizes[0]);
+
   return (
     <div className="max-w-[400px] flex flex-col gap-4">
       <div className="flex justify-between items-center">
@@ -27,7 +32,8 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
             {productInfo.colors.map((color, index) => (
               <p
                 key={index}
-                className="border border-black px-2 py-1 rounded-lg cursor-pointer"
+                className={`border border-black px-2 py-1 rounded-lg cursor-pointer ${selectedColor === color ? "bg-black text-white" : ""}`}
+                onClick={() => setSelectedColor(color)}
               >
                 {color}
               </p>
@@ -43,7 +49,8 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
             {productInfo.sizes.map((sizes, index) => (
               <p
                 key={index}
-                className="border border-black px-2 py-1 rounded-lg cursor-pointer"
+                className={`border border-black px-2 py-1 rounded-lg cursor-pointer ${selectedSize === sizes ? "bg-black text-white" : ""}`}
+                onClick={() => setSelectedSize(sizes)}
               >
                 {sizes}
               </p>
