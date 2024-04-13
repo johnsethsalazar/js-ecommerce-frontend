@@ -83,7 +83,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
           />
         </div>
       </div>
-      
+      <button className="outline text-base-bold py-3 rounded-lg hover:bg-black hover:text-white">Add to Cart</button>
     </div>
   );
 };
