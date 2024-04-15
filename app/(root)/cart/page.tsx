@@ -60,6 +60,12 @@ const Cart = () => {
           </div>
         )}
       </div>
+
+      <div className="w-1/3 flex flex-col gap-8 bg-grey-1 rounded-lg px-4 py-5">
+        <p className="text-heading4-bold pb-4">
+          Summary <span>{`${cart.cartItems.length} ${cart.cartItems.length > 1 ? "items" : "item"}`}</span>
+        </p>
+      </div>
     </div>
   );
 };
