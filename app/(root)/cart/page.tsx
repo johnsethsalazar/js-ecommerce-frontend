@@ -7,6 +7,9 @@ import React from "react";
 
 const Cart = () => {
   const cart = useCart();
+  const total = cart.cartItems.reduce((acc, cartItem) => acc + cartItem.item.price * cartItem.quantity, 0)
+  const totalRounded = parseFloat(total.toFixed(2))
+
   return (
     <div className="flex gap-20 py-16 px-10">
       <div className="w-2/3">
@@ -65,6 +68,10 @@ const Cart = () => {
         <p className="text-heading4-bold pb-4">
           Summary <span>{`${cart.cartItems.length} ${cart.cartItems.length > 1 ? "items" : "item"}`}</span>
         </p>
+        <div className="flex justify-between text-body-semibold">
+          <span>Total</span>
+          <span>${totalRounded}</span>
+        </div>
       </div>
     </div>
   );
