@@ -39,6 +39,7 @@ const Cart = () => {
                     {cartItem.size && (
                       <p className="text-small-medium">{cartItem.size}</p>
                     )}
+                    <p>${cartItem.item.price}</p>
                   </div>
                 </div>
 
@@ -69,7 +70,7 @@ const Cart = () => {
           Summary <span>{`${cart.cartItems.length} ${cart.cartItems.length > 1 ? "items" : "item"}`}</span>
         </p>
         <div className="flex justify-between text-body-semibold">
-          <span>Total</span>
+          <span>Total Amount</span>
           <span>${totalRounded}</span>
         </div>
       </div>
