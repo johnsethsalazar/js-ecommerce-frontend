@@ -7,14 +7,17 @@ import React from "react";
 
 const Cart = () => {
   const cart = useCart();
-  const total = cart.cartItems.reduce((acc, cartItem) => acc + cartItem.item.price * cartItem.quantity, 0)
-  const totalRounded = parseFloat(total.toFixed(2))
+  const total = cart.cartItems.reduce(
+    (acc, cartItem) => acc + cartItem.item.price * cartItem.quantity,
+    0
+  );
+  const totalRounded = parseFloat(total.toFixed(2));
 
   return (
     <div className="flex gap-20 py-16 px-10">
       <div className="w-2/3">
         <p className="text-heading3-bold">Shopping Cart</p>
-        <hr className="my-6"/>
+        <hr className="my-6" />
 
         {cart.cartItems.length === 0 ? (
           <p className="text-body-bold">No item in cart</p>
@@ -67,12 +70,18 @@ const Cart = () => {
 
       <div className="w-1/3 flex flex-col gap-8 bg-grey-1 rounded-lg px-4 py-5">
         <p className="text-heading4-bold pb-4">
-          Summary <span>{`${cart.cartItems.length} ${cart.cartItems.length > 1 ? "items" : "item"}`}</span>
+          Summary{" "}
+          <span>{`${cart.cartItems.length} ${
+            cart.cartItems.length > 1 ? "items" : "item"
+          }`}</span>
         </p>
         <div className="flex justify-between text-body-semibold">
           <span>Total Amount</span>
           <span>${totalRounded}</span>
         </div>
+        <button className="border rounded-lg text-body-bold bg-white py-3 w-full hover:bg-black hover:text-white">
+          Proceed to Checkout
+        </button>
       </div>
     </div>
   );
