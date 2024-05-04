@@ -2,7 +2,7 @@
 
 import useCart from "@/lib/hooks/useCart";
 import { UserButton, useUser } from "@clerk/nextjs";
-import { CircleUserRound, Menu, ShoppingCart } from "lucide-react";
+import { CircleUserRound, Menu, Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -33,6 +33,12 @@ const Navbar = () => {
           Orders
         </Link>
       </div>
+
+      <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
+        <input className="outline-none"/>
+        <Search className="cursor-pointer h-4 w-4 hover:text-red-1"/>
+      </div>
+
       <div className="relative flex gap-3 items-center">
         <Link
           href="/cart"
