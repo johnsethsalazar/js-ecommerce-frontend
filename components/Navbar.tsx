@@ -19,8 +19,22 @@ const Navbar = () => {
       <Link href="/">
         <Image src="/logo.jpg" alt="logo" width={130} height={100} />
       </Link>
-      <div>
-        <Link href="/">Home</Link>
+      <div className="flex gap-4 text-base-bold">
+        <Link href="/" className="hover:text-red-1">
+          Home
+        </Link>
+        <Link
+          href={user ? "/wishlist" : "/sign-in"}
+          className="hover:text-red-1"
+        >
+          Wishlist
+        </Link>
+        <Link
+          href={user ? "/orders" : "/sign-in"}
+          className="hover:text-red-1"
+        >
+          Orders
+        </Link>
       </div>
       <div className="relative flex gap-3 items-center">
         <Link
