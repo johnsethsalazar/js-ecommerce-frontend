@@ -13,6 +13,7 @@ const Navbar = () => {
   //console.log(user);
 
   const [dropdownMenu, setdropdownMenu] = useState(false);
+  const [query, setQuery] = useState("");
 
   return (
     <div className="sticky top-0 z-10 py-2 px-10 flex justify-between items-center bg-white">
@@ -35,7 +36,7 @@ const Navbar = () => {
       </div>
 
       <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
-        <input className="outline-none"/>
+        <input className="outline-none" placeholder="Search" value={query} onChange={(e) => setQuery(e.target.value)}/>
         <Search className="cursor-pointer h-4 w-4 hover:text-red-1"/>
       </div>
 
