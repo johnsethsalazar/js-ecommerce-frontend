@@ -31,3 +31,5 @@ const CollectionDetails = async ({
 };
 
 export default CollectionDetails;
+
+export const dynamic = "force-dynamic";
