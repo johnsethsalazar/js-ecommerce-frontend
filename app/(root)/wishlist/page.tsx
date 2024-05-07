@@ -1,5 +1,6 @@
 'use client'
 
+import { getProductDetails } from "@/lib/actions/actions";
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 
@@ -27,6 +28,17 @@ const Wishlist = () => {
   }, [user]);
 
   console.log(signedInUser);
+
+  const getWishlistProducts = async () => {
+    setLoading(true);
+
+    if(!signedInUser) return
+
+    const wishlistProducts = await Promise.all(signedInUser.wishlist.map(async (productId) => {
+      const res = await getProductDetails(productId);
+      return res;
+    }))
+  }
 
   return (
     <div>Wishlist</div>
