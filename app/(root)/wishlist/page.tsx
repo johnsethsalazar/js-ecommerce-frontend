@@ -40,6 +40,12 @@ const Wishlist = () => {
     }))
   }
 
+  useEffect(() => {
+    if(signedInUser){
+      getWishlistProducts();
+    }
+  }, [signedInUser]);
+
   return (
     <div>Wishlist</div>
   )
