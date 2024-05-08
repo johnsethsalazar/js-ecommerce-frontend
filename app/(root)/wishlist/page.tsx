@@ -1,5 +1,7 @@
 'use client'
 
+import Loader from "@/components/Loader";
+import ProductCard from "@/components/ProductCard";
 import { getProductDetails } from "@/lib/actions/actions";
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
@@ -38,6 +40,8 @@ const Wishlist = () => {
       const res = await getProductDetails(productId);
       return res;
     }))
+
+    setWishlist(wishlistProducts);
   }
 
   useEffect(() => {
@@ -46,8 +50,18 @@ const Wishlist = () => {
     }
   }, [signedInUser]);
 
-  return (
-    <div>Wishlist</div>
+  return loading ? <Loader /> : (
+    <div className="px-10 py-5">
+      <p className="text-heading3-bold my-10">Your Wishlist</p>
+      {wishlist.length === 0 && (
+        <p className="text-heading3-bold">Your wishlist is empty</p>
+      )}
+      <div className="flex flex-wrap justify-center gap-16">
+        {wishlist.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+      </div>
+    </div>
   )
 }
 
