@@ -42,6 +42,7 @@ const Wishlist = () => {
     }))
 
     setWishlist(wishlistProducts);
+    setLoading(false);
   }
 
   useEffect(() => {
