@@ -8,6 +8,11 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import HeartFavorite from "./HeartFavorite";
 
+interface ProdutCardProps {
+  product: ProductType;
+  updateSignedInUser?: (updatedUser: UserType) => void;
+}
+
 const ProductCard = ({ product }: { product: ProductType }) => {
   return (
     <Link
@@ -27,7 +32,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
       </div>
       <div className="flex justify-between items-center">
         <p className="text-body-bold">${product.price}</p>
-          <HeartFavorite product={product}/>
+        <HeartFavorite product={product} />
       </div>
     </Link>
   );
