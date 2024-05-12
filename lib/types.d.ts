@@ -49,7 +49,15 @@ type OrderType = {
   shippingAddress: Object;
   _id: string;
   customerClerkId: string;
-  products: [Object]
+  products: [OrderItemType]
   shippingRate: string;
   totalAmount: number;
+}
+
+type OrderItemType = {
+  product: ProductType;
+  color: string;
+  size: string;
+  quantity: number;
+  _id: string;
 }
