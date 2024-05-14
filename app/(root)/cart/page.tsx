@@ -119,5 +119,5 @@ const Cart = () => {
     </div>
   );
 };
-
+export const dynamic = "force-dynamic";
 export default Cart;

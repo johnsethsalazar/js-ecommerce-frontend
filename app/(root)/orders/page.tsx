@@ -87,5 +87,5 @@ const Orders = async () => {
     </div>
   );
 };
-
+export const dynamic = "force-dynamic";
 export default Orders;
