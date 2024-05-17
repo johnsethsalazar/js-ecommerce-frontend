@@ -38,6 +38,8 @@ const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
         <p className="text-heading3-bold">{productInfo.title}</p>
       </div>
 
+      <p className="text-heading3">${productInfo.price}</p>
+
       <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
         <input
           className="outline-none max-sm:max-w-[120px]"
