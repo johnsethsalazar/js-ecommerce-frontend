@@ -8,7 +8,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
-const Satc = () => {
+const Satc = ({ productMedia }: { productMedia: string[] }) => {
+  const [mainImage, setMainImage] = useState(productMedia[0]);
   const pathName = usePathname();
   const router = useRouter();
   const { user } = useUser();
@@ -21,7 +22,13 @@ const Satc = () => {
   return (
     <div className="sticky bottom-0 z-10 py-2 px-10 flex gap-2 justify-between items-center bg-white max-sm:px-2">
       <Link href="/">
-        <Image src="/logo.jpg" alt="logo" width={130} height={100} />
+      <Image
+        src={mainImage}
+        alt="product"
+        width={500}
+        height={500}
+        className="w-24 h-24 rounded-lg shadow-lg object-cover"
+      />
       </Link>
       <div className="flex gap-4 text-base-bold max-lg:hidden">
         <Link
