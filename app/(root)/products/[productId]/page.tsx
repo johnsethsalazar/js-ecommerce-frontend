@@ -26,7 +26,6 @@ const ProductDetails = async ({
           ))}
         </div>
       </div>
-      {/* <Satc /> */}
     </>
   );
 };
