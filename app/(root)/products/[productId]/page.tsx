@@ -26,7 +26,7 @@ const ProductDetails = async ({
           ))}
         </div>
       </div>
-      <Satc productMedia={productDetails.media} />
+      <Satc productMedia={productDetails.media} productInfo={productDetails} />
     </>
   );
 };

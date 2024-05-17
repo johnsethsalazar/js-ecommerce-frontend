@@ -8,9 +8,13 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
-const Satc = ({ productMedia }: { productMedia: string[] }) => {
+interface ProductSatcProps {
+  productMedia: string[];
+  productInfo: ProductType;
+}
+
+const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
   const [mainImage, setMainImage] = useState(productMedia[0]);
-  const pathName = usePathname();
   const router = useRouter();
   const { user } = useUser();
   const cart = useCart();
@@ -31,28 +35,7 @@ const Satc = ({ productMedia }: { productMedia: string[] }) => {
       />
       </Link>
       <div className="flex gap-4 text-base-bold max-lg:hidden">
-        <Link
-          href="/"
-          className={`hover:text-red-1 ${pathName === "/" && "text-red-1"}`}
-        >
-          Home
-        </Link>
-        <Link
-          href={user ? "/wishlist" : "/sign-in"}
-          className={`hover:text-red-1 ${
-            pathName === "/wishlist" && "text-red-1"
-          }`}
-        >
-          Wishlist
-        </Link>
-        <Link
-          href={user ? "/orders" : "/sign-in"}
-          className={`hover:text-red-1 ${
-            pathName === "/orders" && "text-red-1"
-          }`}
-        >
-          Orders
-        </Link>
+        <p className="text-heading3-bold">{productInfo.title}</p>
       </div>
 
       <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
