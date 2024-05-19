@@ -42,7 +42,7 @@ const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
 
       
 
-      <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
+      {/* <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
         <input
           className="outline-none max-sm:max-w-[120px]"
           placeholder="Search"
@@ -105,7 +105,7 @@ const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
             <CircleUserRound />
           </Link>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
