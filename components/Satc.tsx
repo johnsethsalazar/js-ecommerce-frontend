@@ -34,15 +34,15 @@ const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
         className="w-24 h-24 rounded-lg shadow-lg object-cover"
       />
       </Link>
-      <div className="flex gap-4 text-base-bold max-lg:hidden">
-        <p className="text-heading3-bold">{productInfo.title}</p>
+      <div className="flex gap-4 text-base-bold max-lg:hidden w-3/12	">
+        <p className="text-heading3-bold text-left ">{productInfo.title}</p>
       </div>
 
       <p className="text-heading3">${productInfo.price}</p>
 
       
 
-      {/* <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
+      <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
         <input
           className="outline-none max-sm:max-w-[120px]"
           placeholder="Search"
@@ -105,7 +105,7 @@ const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
             <CircleUserRound />
           </Link>
         )}
-      </div> */}
+      </div>
     </div>
   );
 };
