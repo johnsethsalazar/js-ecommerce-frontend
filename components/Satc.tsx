@@ -64,18 +64,7 @@ const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
       </div>
 
       <div className="relative flex gap-3 items-center">
-        <Link
-          href="/cart"
-          className="flex items-center gap-3 border rounded-lg px-2 py-1 hover:bg-black hover:text-white max-md:hidden"
-        >
-          <ShoppingCart />
-          <p className="text-base-bold">Cart ({cart.cartItems.length})</p>
-        </Link>
-
-        <Menu
-          className="cursor-pointer lg:hidden"
-          onClick={() => setdropdownMenu(!dropdownMenu)}
-        />
+          
         <button
               className="outline text-base-bold py-3 rounded-lg hover:bg-black hover:text-white"
               onClick={() =>
