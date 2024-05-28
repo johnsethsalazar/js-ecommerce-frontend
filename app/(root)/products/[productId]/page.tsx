@@ -25,6 +25,7 @@ const ProductDetails = async ({
           ))}
         </div>
       </div>
+      <Satc productMedia={productDetails.media} productInfo={productDetails} selectedColor={productDetails.selectedColor} selectedSize={productDetails.selectedSize} quantity={productDetails.quantity} />
     </>
   );
 };
