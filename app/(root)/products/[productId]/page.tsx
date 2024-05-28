@@ -1,6 +1,7 @@
 import Gallery from "@/components/Gallery";
 import ProductCard from "@/components/ProductCard";
 import ProductInfo from "@/components/ProductInfo";
+import Satc from "@/components/Satc";
 import { getProductDetails, getRelatedProducts } from "@/lib/actions/actions";
 
 const ProductDetails = async ({
