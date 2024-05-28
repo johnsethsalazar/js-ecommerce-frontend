@@ -11,18 +11,18 @@ import { useState } from "react";
 interface ProductSatcProps {
   productMedia: string[];
   productInfo: ProductType;
+  selectedColor: string;
+  selectedSize: string;
+  quantity: number;
 }
 
 const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
   const [mainImage, setMainImage] = useState(productMedia[0]);
   const router = useRouter();
-  const { user } = useUser();
   const cart = useCart();
   //console.log(user);
 
-  const [dropdownMenu, setdropdownMenu] = useState(false);
   const [query, setQuery] = useState("");
-
   const [selectedColor, setSelectedColor] = useState<string>(
     productInfo.colors[0]
   );
@@ -49,18 +49,24 @@ const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
       <p className="text-heading3">${productInfo.price}</p>
 
       <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
-        <input
-          className="outline-none max-sm:max-w-[120px]"
-          placeholder="Search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <button
-          disabled={query === ""}
-          onClick={() => router.push(`/search/${query}`)}
-        >
-          <Search className="cursor-pointer h-4 w-4 hover:text-red-1" />
-        </button>
+      {productInfo.colors.length > 1 && (
+        <div className="flex flex-col gap-2">
+          <p className="text-base-medium text-grey-2">Colors</p>
+          <div className="flex gap-2">
+            {productInfo.colors.map((color, index) => (
+              <p
+                key={index}
+                className={`border border-black px-2 py-1 rounded-lg cursor-pointer ${
+                  selectedColor === color ? "bg-black text-white" : ""
+                }`}
+                onClick={() => setSelectedColor(color)}
+              >
+                {color}
+              </p>
+            ))}
+          </div>
+        </div>
+      )}
       </div>
 
       <div className="relative flex gap-3 items-center">
