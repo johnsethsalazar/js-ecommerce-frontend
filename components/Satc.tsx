@@ -7,6 +7,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface ProductSatcProps {
   productMedia: string[];
@@ -49,41 +56,41 @@ const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
       <p className="text-heading3">${productInfo.price}</p>
 
       <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
-      {productInfo.colors.length > 1 && (
-        <div className="flex flex-col gap-2">
-          <p className="text-base-medium text-grey-2">Colors</p>
-          <div className="flex gap-2">
-            {productInfo.colors.map((color, index) => (
-              <p
-                key={index}
-                className={`border border-black px-2 py-1 rounded-lg cursor-pointer ${
-                  selectedColor === color ? "bg-black text-white" : ""
-                }`}
-                onClick={() => setSelectedColor(color)}
-              >
-                {color}
-              </p>
-            ))}
+        {productInfo.colors.length > 1 && (
+          <div className="flex flex-col gap-2">
+            <p className="text-base-medium text-grey-2">Colors</p>
+            <div className="flex gap-2">
+              <Select>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Pick a Color Variant" />
+                </SelectTrigger>
+                <SelectContent>
+                  {productInfo.colors.map((color, index) => (
+                    <SelectItem value={color} key={index} onClick={() => setSelectedColor(color)}>
+                      {color}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       </div>
 
       <div className="relative flex gap-3 items-center">
-          
         <button
-              className="outline text-base-bold py-3 rounded-lg hover:bg-black hover:text-white"
-              onClick={() =>
-                cart.addItem({
-                  item: productInfo,
-                  quantity,
-                  color: selectedColor,
-                  size: selectedSize,
-                })
-              }
-            >
-              Add to Cart
-            </button>
+          className="outline text-base-bold py-3 rounded-lg hover:bg-black hover:text-white"
+          onClick={() =>
+            cart.addItem({
+              item: productInfo,
+              quantity,
+              color: selectedColor,
+              size: selectedSize,
+            })
+          }
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );
