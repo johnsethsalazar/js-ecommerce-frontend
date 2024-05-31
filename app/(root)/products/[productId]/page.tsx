@@ -11,6 +11,8 @@ const ProductDetails = async ({
 }) => {
   const productDetails = await getProductDetails(params.productId);
   const relatedProducts = await getRelatedProducts(params.productId);
+
+  
   return (
     <>
       <div className="flex justify-center items-start gap-16 py-10 px-5 max-md:flex-col max-md:items:center">
