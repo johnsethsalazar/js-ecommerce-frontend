@@ -60,14 +60,36 @@ const Satc = ({ productMedia, productInfo }: ProductSatcProps) => {
           <div className="flex flex-col gap-2">
             <p className="text-base-medium text-grey-2">Colors</p>
             <div className="flex gap-2">
-              <Select>
+              <Select value={selectedColor} onValueChange={setSelectedColor}>
                 <SelectTrigger className="w-[180px]">
                   <SelectValue placeholder="Pick a Color Variant" />
                 </SelectTrigger>
                 <SelectContent>
                   {productInfo.colors.map((color, index) => (
-                    <SelectItem value={color} key={index} onClick={() => setSelectedColor(color)}>
+                    <SelectItem value={color} key={index}>
                       {color}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
+        {productInfo.sizes.length > 1 && (
+          <div className="flex flex-col gap-2">
+            <p className="text-base-medium text-grey-2">Size</p>
+            <div className="flex gap-2">
+              <Select value={selectedSize} onValueChange={setSelectedSize}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Pick a Size Variant" />
+                </SelectTrigger>
+                <SelectContent>
+                  {productInfo.sizes.map((size, index) => (
+                    <SelectItem value={size} key={index}>
+                      {size}
                     </SelectItem>
                   ))}
                 </SelectContent>
